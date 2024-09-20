@@ -141,7 +141,7 @@ deleteContact_confirmation: str = "Are you sure you want to delete this contact 
 deleteContact_success: str = "Contact {} has been successfully deleted."
 deleteContact_cancelled:str = "Contact {} deletion cancelled."
 # <----- READ ----->
-readContact_countryHeader:str = "Here are the student's from {}."
+readContact_countryHeader:str = "Here are the students from {}."
 if __name__ == "__main__":
     pb = ContactList()
     while True:
@@ -160,7 +160,7 @@ if __name__ == "__main__":
                             print(createContact_failed)
                             print(error_message.format(error))
                         user_prompt = prompt("Do you want to add a new one (Y / N)? ")
-                        if user_prompt == "Y" or user_prompt == "y":
+                        if user_prompt.capitalize() == "Y":
                             continue
                         break
                 case 2: # [2] Edit entry in ASEAN Phonebook
@@ -184,10 +184,10 @@ if __name__ == "__main__":
                     contact = pb.getContact(student_number)
                     if contact is not None:
                         confirmation = prompt(deleteContact_confirmation)
-                        if confirmation == "Y" or confirmation == "y":
+                        if confirmation.capitalize() == "Y":
                             pb.deleteContact(student_number)
                             print(deleteContact_success.format(student_number))
-                        elif confirmation == "N" or confirmation == "n":
+                        elif confirmation.capitalize() == "N":
                             print(deleteContact_cancelled)
                 case 4: # [4] View/Search ASEAN Phonebook
                     showMenu("views")

@@ -82,7 +82,7 @@ class ContactList:
             if self.getContactAtIndex(i).getLName() == surname:
                 return self.getContactAtIndex(i)
         return None
-        
+    
     def isEmpty(self) -> bool:
         """
             Checks if contact list has no contacts.
@@ -95,6 +95,7 @@ class ContactList:
         """
         # Complete this Method
         self.size += 1
+    
     def decrSize(self) -> None:
         """
             Decrease the size of this contact list
@@ -123,7 +124,7 @@ class ContactList:
                 self.__adjustPhonebook(start=index, end=self.size, dir='f')
                 self.phonebook[index] = c
                 self.incrSize()
-            else:
+            elif self.getSize() == len(self.phonebook):
                 self.__increasePhonebookSize()
                 self.phonebook[self.getSize()] = c
                 self.incrSize()
@@ -226,7 +227,7 @@ class ContactList:
             for y in range(x+1, len(phonebook)):
                 if Contact.compare(phonebook[min_index], phonebook[y], modifier=by) == 1:
                     min_index = y
-            phonebook[min_index],phonebook[x] = phonebook[x], phonebook[min_index]
+            phonebook[min_index], phonebook[x] = phonebook[x], phonebook[min_index]
         return phonebook
     #<----- activity -----> status: Complete && Bonus: 1pts
     def __str__(self, f = None, by: str = 'lname') -> str:
@@ -247,7 +248,7 @@ class ContactList:
         if not self.isEmpty():
             # Complete this method.
             # Optionally include viewing contacts in a particular order for up to 1 bonus point in your MTE.
-            # You can use the __sort method to sort the contacts before printing them.
+            # You can use the __sort() method to sort the contacts before printing them.
             sorted_phonebook = self.__sort(by)
             if f is not None:   
                 filtered = [contact for contact in sorted_phonebook if contact.cc in f]
