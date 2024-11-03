@@ -1,2 +1,2 @@
 # PROJECT-0
- Project 0 is our project for Data Structure and Algorithms.
+ Project 0 - An ASEAN Phonebook project for Data Structure and Algorithms.
